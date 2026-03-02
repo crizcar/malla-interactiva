@@ -4,137 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malla Bioquímica UdeC</title>
-    <style>
-        :root {
-            --udec-dark: #1F375D;
-            --udec-light: #009DE0;
-            --text-gray: #7A7A7A;
-            --border-color: #D1D1D1;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #FFFFFF;
-        }
-
-        .header {
-            background-color: var(--udec-dark);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 36px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .header p {
-            margin: 5px 0 0 0;
-            font-size: 18px;
-            font-weight: 300;
-            color: #A0C1E9;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .malla {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
-
-        .año {
-            flex: 0 0 280px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .año-titulo {
-            text-align: center;
-            color: var(--text-gray);
-            font-size: 14px;
-            font-weight: 600;
-            padding-bottom: 12px;
-            margin-bottom: 12px;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .semestres-container {
-            display: flex;
-            gap: 12px;
-            height: 100%;
-        }
-
-        .semestre {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .sem-titulo {
-            text-align: center;
-            color: var(--text-gray);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            margin-bottom: 4px;
-        }
-
-        .ramo {
-            background-color: var(--udec-light);
-            color: white;
-            font-size: 12px;
-            font-weight: 500;
-            text-align: center;
-            padding: 10px 8px;
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 55px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            line-height: 1.2;
-        }
-
-        .ramo:hover {
-            transform: translateY(-2px);
-            background-color: #0088c4;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-
-        .año-6 {
-            flex: 0 0 280px;
-        }
-
-        .semestres-header-doble {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 4px;
-        }
-        
-        .semestres-header-doble .sem-titulo {
-            flex: 1;
-            margin-bottom: 0;
-        }
-
-        .semestre-doble {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -143,25 +13,25 @@
         <p>FACULTAD DE FARMACIA</p>
     </div>
 
-    <div class="malla">
+    <div class="malla" id="contenedor-malla">
         <div class="año">
             <div class="año-titulo">1° AÑO</div>
             <div class="semestres-container">
                 <div class="semestre">
                     <div class="sem-titulo">SEM I</div>
-                    <div class="ramo">Química General I</div>
-                    <div class="ramo">Matemática I</div>
-                    <div class="ramo">Biología Celular Básica</div>
-                    <div class="ramo">Física I</div>
-                    <div class="ramo">Taller I: Orientación Universitaria</div>
+                    <div class="ramo" id="qg1">Química General I</div>
+                    <div class="ramo" id="mat1">Matemática I</div>
+                    <div class="ramo" id="bcb">Biología Celular Básica</div>
+                    <div class="ramo" id="fis1">Física I</div>
+                    <div class="ramo" id="tou">Taller I: Orientación Universitaria</div>
                 </div>
                 <div class="semestre">
                     <div class="sem-titulo">SEM II</div>
-                    <div class="ramo">Química General II</div>
-                    <div class="ramo">Matemática II</div>
-                    <div class="ramo">Biología Integral</div>
-                    <div class="ramo">Física II</div>
-                    <div class="ramo">Español Académico</div>
+                    <div class="ramo" id="qg2">Química General II</div>
+                    <div class="ramo" id="mat2">Matemática II</div>
+                    <div class="ramo" id="bi">Biología Integral</div>
+                    <div class="ramo" id="fis2">Física II</div>
+                    <div class="ramo" id="ea">Español Académico</div>
                 </div>
             </div>
         </div>
@@ -171,19 +41,19 @@
             <div class="semestres-container">
                 <div class="semestre">
                     <div class="sem-titulo">SEM III</div>
-                    <div class="ramo">Química Orgánica I</div>
-                    <div class="ramo">Química Inorgánica I</div>
-                    <div class="ramo">Histología Humana</div>
-                    <div class="ramo">Termodinámica y Cinética Básica</div>
-                    <div class="ramo">Inglés Comunicativo 1 Nivel Básico</div>
+                    <div class="ramo" id="qo1">Química Orgánica I</div>
+                    <div class="ramo" id="qi1">Química Inorgánica I</div>
+                    <div class="ramo" id="hh">Histología Humana</div>
+                    <div class="ramo" id="tcb">Termodinámica y Cinética Básica</div>
+                    <div class="ramo" id="ing1">Inglés Comunicativo 1 Nivel Básico</div>
                 </div>
                 <div class="semestre">
                     <div class="sem-titulo">SEM IV</div>
-                    <div class="ramo">Química Orgánica II</div>
-                    <div class="ramo">Química Analítica</div>
-                    <div class="ramo">Taller II: Bioquímica y Biotecnología</div>
-                    <div class="ramo">Seminario de Investigación</div>
-                    <div class="ramo">Inglés Comunicativo 2 Nivel Básico</div>
+                    <div class="ramo" id="qo2">Química Orgánica II</div>
+                    <div class="ramo" id="qa">Química Analítica</div>
+                    <div class="ramo" id="tbb">Taller II: Bioquímica y Biotecnología</div>
+                    <div class="ramo" id="si">Seminario de Investigación</div>
+                    <div class="ramo" id="ing2">Inglés Comunicativo 2 Nivel Básico</div>
                 </div>
             </div>
         </div>
@@ -193,19 +63,19 @@
             <div class="semestres-container">
                 <div class="semestre">
                     <div class="sem-titulo">SEM V</div>
-                    <div class="ramo">Química Orgánica III</div>
-                    <div class="ramo">Análisis Instrumental I</div>
-                    <div class="ramo">Fisiología Humana</div>
-                    <div class="ramo">Bioestadística</div>
-                    <div class="ramo">Inglés Comunicativo 3</div>
+                    <div class="ramo" id="qo3">Química Orgánica III</div>
+                    <div class="ramo" id="ai1">Análisis Instrumental I</div>
+                    <div class="ramo" id="fh">Fisiología Humana</div>
+                    <div class="ramo" id="be">Bioestadística</div>
+                    <div class="ramo" id="ing3">Inglés Comunicativo 3</div>
                 </div>
                 <div class="semestre">
                     <div class="sem-titulo">SEM VI</div>
-                    <div class="ramo">Biofísica</div>
-                    <div class="ramo">Análisis Instrumental II</div>
-                    <div class="ramo">Fisiopatología Humana</div>
-                    <div class="ramo">Bioseguridad y Garantía de Calidad</div>
-                    <div class="ramo">Complementaria 1</div>
+                    <div class="ramo" id="biof">Biofísica</div>
+                    <div class="ramo" id="ai2">Análisis Instrumental II</div>
+                    <div class="ramo" id="fph">Fisiopatología Humana</div>
+                    <div class="ramo" id="bgc">Bioseguridad y Garantía de Calidad</div>
+                    <div class="ramo" id="comp1">Complementaria 1</div>
                 </div>
             </div>
         </div>
@@ -215,20 +85,20 @@
             <div class="semestres-container">
                 <div class="semestre">
                     <div class="sem-titulo">SEM VII</div>
-                    <div class="ramo">Bioquímica I: Enzimología y Metabolismo</div>
-                    <div class="ramo">Inmunología</div>
-                    <div class="ramo">Microbiología</div>
-                    <div class="ramo">Orientación Profesional</div>
-                    <div class="ramo">Complementaria 2</div>
+                    <div class="ramo" id="bq1">Bioquímica I: Enzimología y Metabolismo</div>
+                    <div class="ramo" id="inmu">Inmunología</div>
+                    <div class="ramo" id="micro">Microbiología</div>
+                    <div class="ramo" id="op">Orientación Profesional</div>
+                    <div class="ramo" id="comp2">Complementaria 2</div>
                 </div>
                 <div class="semestre">
                     <div class="sem-titulo">SEM VIII</div>
-                    <div class="ramo">Bioquímica II: Biología Molecular</div>
-                    <div class="ramo">Bioquímica Clínica I</div>
-                    <div class="ramo">Microbiología Diagnóstica y Aplicada</div>
-                    <div class="ramo">Bioinformática</div>
-                    <div class="ramo">Administración de Empresas</div>
-                    <div class="ramo">Internado I (*)</div>
+                    <div class="ramo" id="bq2">Bioquímica II: Biología Molecular</div>
+                    <div class="ramo" id="bc1">Bioquímica Clínica I</div>
+                    <div class="ramo" id="mda">Microbiología Diagnóstica y Aplicada</div>
+                    <div class="ramo" id="bioinfo">Bioinformática</div>
+                    <div class="ramo" id="adm">Administración de Empresas</div>
+                    <div class="ramo" id="int1">Internado I (*)</div>
                 </div>
             </div>
         </div>
@@ -238,20 +108,20 @@
             <div class="semestres-container">
                 <div class="semestre">
                     <div class="sem-titulo">SEM IX</div>
-                    <div class="ramo">Unidad de Investigación</div>
-                    <div class="ramo">Bioquímica Clínica II</div>
-                    <div class="ramo">Farmacología</div>
-                    <div class="ramo">Metodología de la Investigación</div>
-                    <div class="ramo">Electiva 1</div>
+                    <div class="ramo" id="ui">Unidad de Investigación</div>
+                    <div class="ramo" id="bc2">Bioquímica Clínica II</div>
+                    <div class="ramo" id="farma">Farmacología</div>
+                    <div class="ramo" id="meti">Metodología de la Investigación</div>
+                    <div class="ramo" id="elec1">Electiva 1</div>
                 </div>
                 <div class="semestre">
                     <div class="sem-titulo">SEM X</div>
-                    <div class="ramo">Formulación de Proyecto de Investigación</div>
-                    <div class="ramo">Hematología</div>
-                    <div class="ramo">Bioprocesos Industriales</div>
-                    <div class="ramo">Electiva 2</div>
-                    <div class="ramo">Electiva 3</div>
-                    <div class="ramo">Internado II (*)</div>
+                    <div class="ramo" id="fpi">Formulación de Proyecto de Investigación</div>
+                    <div class="ramo" id="hema">Hematología</div>
+                    <div class="ramo" id="bpi">Bioprocesos Industriales</div>
+                    <div class="ramo" id="elec2">Electiva 2</div>
+                    <div class="ramo" id="elec3">Electiva 3</div>
+                    <div class="ramo" id="int2">Internado II (*)</div>
                 </div>
             </div>
         </div>
@@ -263,14 +133,15 @@
                 <div class="sem-titulo">SEM XII</div>
             </div>
             <div class="semestre-doble">
-                <div class="ramo">Tesis (**)</div>
-                <div class="ramo">Internado Sector Salud (**)</div>
-                <div class="ramo">Internado Sector Productivo (**)</div>
-                <div class="ramo">Internado Sector Forense (**)</div>
-                <div class="ramo">Examen de Título</div>
+                <div class="ramo" id="tesis">Tesis (**)</div>
+                <div class="ramo" id="is_salud">Internado Sector Salud (**)</div>
+                <div class="ramo" id="is_prod">Internado Sector Productivo (**)</div>
+                <div class="ramo" id="is_for">Internado Sector Forense (**)</div>
+                <div class="ramo" id="extit">Examen de Título</div>
             </div>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
