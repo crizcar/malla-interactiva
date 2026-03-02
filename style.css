@@ -1,0 +1,34 @@
+:root {
+    --udec-dark: #1F375D;
+    --udec-light: #009DE0;
+    --text-gray: #7A7A7A;
+    --border-color: #D1D1D1;
+}
+
+body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; background-color: #FFFFFF; }
+
+.header { background-color: var(--udec-dark); color: white; padding: 25px 30px; border-radius: 8px 8px 0 0; margin-bottom: 20px; }
+.header h1 { margin: 0; font-size: 36px; font-weight: 800; }
+.header p { margin: 5px 0 0 0; font-size: 18px; font-weight: 300; color: #A0C1E9; }
+
+.malla { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 20px; }
+.año { flex: 0 0 280px; display: flex; flex-direction: column; }
+.año-titulo { text-align: center; color: var(--text-gray); font-size: 14px; font-weight: 600; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); }
+
+.semestres-container { display: flex; gap: 12px; height: 100%; }
+.semestre { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.sem-titulo { text-align: center; color: var(--text-gray); font-size: 12px; font-weight: 600; padding: 6px; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 4px; }
+
+.ramo { background-color: var(--udec-light); color: white; font-size: 12px; font-weight: 500; text-align: center; padding: 10px 8px; border-radius: 3px; display: flex; align-items: center; justify-content: center; min-height: 55px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); user-select: none;}
+.ramo:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+
+.año-6 { flex: 0 0 280px; }
+.semestres-header-doble { display: flex; gap: 12px; margin-bottom: 4px; }
+.semestres-header-doble .sem-titulo { flex: 1; margin-bottom: 0; }
+.semestre-doble { display: flex; flex-direction: column; gap: 8px; }
+
+/* CLASES DE INTERACTIVIDAD */
+.ramo.inactivo { opacity: 0.3; filter: grayscale(80%); pointer-events: none; }
+.ramo.activo { background-color: #E28F22; transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10; font-weight: 700; }
+.ramo.prerrequisito { background-color: #D32F2F; border-left: 5px solid #9A0007; opacity: 1; filter: grayscale(0%); pointer-events: none;}
+.ramo.abre { background-color: #388E3C; border-left: 5px solid #005005; opacity: 1; filter: grayscale(0%); pointer-events: none;}
