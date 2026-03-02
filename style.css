@@ -1,34 +1,185 @@
 :root {
-    --udec-dark: #1F375D;
-    --udec-light: #009DE0;
-    --text-gray: #7A7A7A;
-    --border-color: #D1D1D1;
+    /* Paleta Pink Aesthetic & Moderna */
+    --bg-color: #FFF5F8; /* Fondo rosado muy pálido */
+    --header-gradient: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%); /* Degradado cabecera */
+    --header-text: #FFFFFF;
+    
+    /* Colores base de los ramos (Inactivos/Normales) */
+    --card-bg: #FFFFFF;
+    --card-border: #FADADD; /* Rosa pálido suave */
+    --text-main: #6A4F5F; /* Gris malva oscuro para legibilidad */
+
+    /* Colores de Interactividad (Al hacer clic) */
+    --active-pink: #FF1493; /* DeepPink para el ramo seleccionado */
+    --active-text: #FFFFFF;
+    
+    --pre-bg: #FFEBEE; /* Rojo/Rosa muy suave para requisitos */
+    --pre-border: #EF9A9A; /* Borde requisito */
+    --pre-text: #B71C1C;
+    
+    --abre-bg: #E8F5E9; /* Menta/Verde muy suave para lo que abre */
+    --abre-border: #A5D6A7; /* Borde abre */
+    --abre-text: #1B5E20;
+
+    --text-gray: #8A7A85; /* Gris rosado para títulos secundarios */
 }
 
-body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; background-color: #FFFFFF; }
+/* General y Scrollbar Estilizada */
+body { 
+    font-family: 'Poppins', 'Segoe UI', sans-serif; /* Font más moderna si está disponible */
+    margin: 0; 
+    padding: 20px; 
+    background-color: var(--bg-color); 
+    color: var(--text-main);
+    overflow-x: hidden;
+}
 
-.header { background-color: var(--udec-dark); color: white; padding: 25px 30px; border-radius: 8px 8px 0 0; margin-bottom: 20px; }
-.header h1 { margin: 0; font-size: 36px; font-weight: 800; }
-.header p { margin: 5px 0 0 0; font-size: 18px; font-weight: 300; color: #A0C1E9; }
+::-webkit-scrollbar { height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--light-pink); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #FF99CC; }
 
-.malla { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 20px; }
-.año { flex: 0 0 280px; display: flex; flex-direction: column; }
-.año-titulo { text-align: center; color: var(--text-gray); font-size: 14px; font-weight: 600; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); }
+/* Cabecera Aesthetic */
+.header { 
+    background: var(--header-gradient); 
+    color: var(--header-text); 
+    padding: 30px 40px; 
+    border-radius: 20px; /* Bordes muy redondeados */
+    margin-bottom: 25px; 
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2); /* Sombra rosada difusa */
+    text-align: center;
+}
+.header h1 { 
+    margin: 0; 
+    font-size: 38px; 
+    font-weight: 800; 
+    letter-spacing: -1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header p { 
+    margin: 8px 0 0 0; 
+    font-size: 16px; 
+    font-weight: 400; 
+    color: #FFF0F5; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+}
 
+/* Contenedor de la Malla */
+.malla { 
+    display: flex; 
+    gap: 15px; 
+    overflow-x: auto; 
+    padding: 10px 10px 30px 10px; 
+}
+
+/* Columnas de Año */
+.año { 
+    flex: 0 0 290px; 
+    display: flex; 
+    flex-direction: column; 
+    background: #FFFFFF;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.año-titulo { 
+    text-align: center; 
+    color: var(--main-pink); 
+    font-size: 16px; 
+    font-weight: 700; 
+    padding-bottom: 15px; 
+    margin-bottom: 15px; 
+    border-bottom: 2px dashed var(--card-border); /* Línea discontinua aesthetic */
+}
+
+/* Semestres */
 .semestres-container { display: flex; gap: 12px; height: 100%; }
-.semestre { flex: 1; display: flex; flex-direction: column; gap: 8px; }
-.sem-titulo { text-align: center; color: var(--text-gray); font-size: 12px; font-weight: 600; padding: 6px; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 4px; }
+.semestre { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.sem-titulo { 
+    text-align: center; 
+    color: var(--text-gray); 
+    font-size: 12px; 
+    font-weight: 600; 
+    padding: 6px; 
+    background-color: var(--bg-color);
+    border-radius: 8px; 
+    margin-bottom: 5px; 
+}
 
-.ramo { background-color: var(--udec-light); color: white; font-size: 12px; font-weight: 500; text-align: center; padding: 10px 8px; border-radius: 3px; display: flex; align-items: center; justify-content: center; min-height: 55px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); user-select: none;}
-.ramo:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+/* Tarjetas de Ramo (Aesthetic Style) */
+.ramo { 
+    background-color: var(--card-bg); 
+    color: var(--text-main); 
+    font-size: 12px; 
+    font-weight: 500; 
+    text-align: center; 
+    padding: 12px 10px; 
+    border-radius: 10px; /* Bordes suaves */
+    border: 1px solid var(--card-border);
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 55px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; /* Transición suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    user-select: none;
+    line-height: 1.3;
+}
 
-.año-6 { flex: 0 0 280px; }
+/* Hover Effect: Moderno y suave */
+.ramo:hover { 
+    transform: translateY(-3px) scale(1.02); 
+    background-color: #FFF0F5; /* LavenderBlush al pasar el mouse */
+    border-color: #FFB6C1;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15); 
+}
+
+/* Ajustes para Año 6 */
+.año-6 { flex: 0 0 290px; }
 .semestres-header-doble { display: flex; gap: 12px; margin-bottom: 4px; }
 .semestres-header-doble .sem-titulo { flex: 1; margin-bottom: 0; }
-.semestre-doble { display: flex; flex-direction: column; gap: 8px; }
+.semestre-doble { display: flex; flex-direction: column; gap: 10px; }
 
-/* CLASES DE INTERACTIVIDAD */
-.ramo.inactivo { opacity: 0.3; filter: grayscale(80%); pointer-events: none; }
-.ramo.activo { background-color: #E28F22; transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10; font-weight: 700; }
-.ramo.prerrequisito { background-color: #D32F2F; border-left: 5px solid #9A0007; opacity: 1; filter: grayscale(0%); pointer-events: none;}
-.ramo.abre { background-color: #388E3C; border-left: 5px solid #005005; opacity: 1; filter: grayscale(0%); pointer-events: none;}
+/* =========================================
+   CLASES DE INTERACTIVIDAD (Pink Edition)
+   ========================================= */
+
+/* Ramos no relacionados: Se apagan suavemente */
+.ramo.inactivo { 
+    opacity: 0.2; 
+    filter: grayscale(100%) blur(0.5px); /* Efecto blur suave */
+    pointer-events: none; 
+}
+
+/* Ramo Seleccionado: Pink vibrante */
+.ramo.activo { 
+    background: var(--active-pink); 
+    color: var(--active-text); 
+    border-color: var(--active-pink);
+    transform: scale(1.05); 
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4); 
+    z-index: 10; 
+    font-weight: 700; 
+}
+
+/* Prerrequisitos: Rojo pastel suave */
+.ramo.prerrequisito { 
+    background-color: var(--pre-bg); 
+    color: var(--pre-text);
+    border: 2px solid var(--pre-border);
+    opacity: 1; 
+    filter: grayscale(0%); 
+    pointer-events: none;
+}
+
+/* Ramos que abre: Verde menta pastel suave */
+.ramo.abre { 
+    background-color: var(--abre-bg); 
+    color: var(--abre-text);
+    border: 2px solid var(--abre-border);
+    opacity: 1; 
+    filter: grayscale(0%); 
+    pointer-events: none;
+}
