@@ -1,0 +1,37 @@
+[
+  { "id": "qg1", "req": [] },
+  { "id": "mat1", "req": [] },
+  { "id": "bcb", "req": [] },
+  { "id": "fis1", "req": [] },
+  { "id": "tou", "req": [] },
+
+  { "id": "qg2", "req": ["qg1"] },
+  { "id": "mat2", "req": ["mat1"] },
+  { "id": "bi", "req": ["bcb"] },
+  { "id": "fis2", "req": ["fis1"] },
+  { "id": "ea", "req": [] },
+
+  { "id": "qo1", "req": ["qg2"] },
+  { "id": "qi1", "req": ["qg2"] },
+  { "id": "hh", "req": ["bi"] },
+  { "id": "tcb", "req": ["mat2", "fis2"] },
+  { "id": "ing1", "req": [] },
+
+  { "id": "qo2", "req": ["qo1"] },
+  { "id": "qa", "req": ["qi1"] },
+  { "id": "tbb", "req": [] },
+  { "id": "si", "req": [] },
+  { "id": "ing2", "req": ["ing1"] },
+
+  { "id": "qo3", "req": ["qo2"] },
+  { "id": "ai1", "req": ["qa"] },
+  { "id": "fh", "req": ["hh", "qo2"] },
+  { "id": "be", "req": ["mat2"] },
+  { "id": "ing3", "req": ["ing2"] },
+
+  { "id": "biof", "req": ["tcb"] },
+  { "id": "ai2", "req": ["ai1"] },
+  { "id": "fph", "req": ["fh"] },
+  { "id": "bgc", "req": [] },
+  { "id": "comp1", "req": [] }
+]
