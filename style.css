@@ -183,3 +183,18 @@ body {
     filter: grayscale(0%); 
     pointer-events: none;
 }
+/* Ramo Aprobado / Tachado */
+.ramo.aprobado {
+    background-color: #FCE4EC;
+    color: #BDBDBD;
+    text-decoration: line-through;
+    border: 2px dashed #F48FB1;
+    opacity: 0.6;
+}
+
+/* Evitar que el tachado se pierda al interactuar con el clic izquierdo */
+.ramo.aprobado.activo, 
+.ramo.aprobado.prerrequisito, 
+.ramo.aprobado.abre {
+    text-decoration: line-through;
+}
